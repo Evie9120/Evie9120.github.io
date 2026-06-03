@@ -1,0 +1,346 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #e8eef2;
+  background-image: radial-gradient(circle at 10px 10px, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+#G {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.scr {
+  display: none;
+  background: white;
+  border-radius: 32px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05), 0 2px 4px rgba(0,0,0,0.02);
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.scr.on {
+  display: block;
+}
+
+h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* ← this centers horizontally */
+  gap: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+.tagline {
+  color: #4a627a;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background: #f0f4f8;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 20px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.15s;
+  color: #1e3a5f;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+.btn i {
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-go {
+  background: #2c7a4d;
+  color: white;
+}
+
+.btn-go:hover {
+  background: #1f5e3a;
+}
+
+.small {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+.xp-bar-wrap {
+  background: #e2e8f0;
+  border-radius: 20px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.xp-bar-fill {
+  background: #2c7a4d;
+  width: 0%;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+
+.level-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.lvl-card, .lvl-card-done, .lvl-card-locked {
+  background: #fafcff;
+  border: 1px solid #dce5ef;
+  border-radius: 24px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+.lvl-card:hover, .lvl-card-done:hover {
+  border-color: #2c7a4d;
+  background: #f6fafd;
+}
+
+.lvl-card-locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lvl-card-done {
+  border-left: 6px solid #2c7a4d;
+}
+
+.game-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.level-xp {
+  flex: 1;
+}
+
+.level-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.hearts i {
+  color: #e53e3e;
+  margin-right: 4px;
+}
+
+.slot, .slot-sel, .slot-ok, .slot-err {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  transition: 0.1s;
+}
+
+.slot {
+  background: #f1f5f9;
+  border: 2px dashed #94a3b8;
+}
+
+.slot-sel {
+  border: 2px solid #2c7a4d;
+  background: #e0f2e9;
+}
+
+.slot-ok {
+  border: 2px solid #2c7a4d;
+  background: #dcfce7;
+}
+
+.slot-err {
+  border: 2px solid #ef4444;
+  background: #fee2e2;
+  animation: shake 0.3s;
+}
+
+.part, .organ-chip, .eco-tool, .eco-tool-sel {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 40px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px;
+  transition: 0.1s;
+}
+
+.part:hover, .organ-chip:hover {
+  background: #e2e8f0;
+  border-color: #2c7a4d;
+}
+
+.part-used, .organ-chip-used {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #cbd5e1;
+}
+
+.eco-tool-sel {
+  background: #2c7a4d;
+  color: white;
+  border-color: #2c7a4d;
+}
+
+.base-btn {
+  width: 44px;
+  height: 38px;
+  border-radius: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+}
+
+.bA {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.bT {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+.bG {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.bC {
+  background: #f3e8ff;
+  color: #6b21a5;
+}
+
+.bE {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.fb {
+  border-radius: 20px;
+  padding: 12px;
+  margin-top: 16px;
+  font-weight: 500;
+}
+
+.fb-ok {
+  background: #dcfce7;
+  color: #166534;
+  border-left: 6px solid #2c7a4d;
+}
+
+.fb-err {
+  background: #fee2e2;
+  color: #991b1b;
+  border-left: 6px solid #ef4444;
+}
+
+.fb-info {
+  background: #dbeafe;
+  color: #1e3a8a;
+  border-left: 6px solid #3b82f6;
+}
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+.float-score {
+  position: absolute;
+  font-weight: bold;
+  color: #2c7a4d;
+  animation: floatup 0.8s forwards;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes floatup {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-40px); }
+}
+
+.ach-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.ach-card, .ach-earned {
+  background: #fafcff;
+  border: 1px solid #dce5ef;
+  border-radius: 20px;
+  padding: 14px;
+  text-align: center;
+}
+
+.ach-earned {
+  border-color: #f59e0b;
+  background: #fffbeb;
+}
+
+@media (max-width: 550px) {
+  .slot, .slot-sel, .slot-ok, .slot-err {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+  .part, .organ-chip {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
