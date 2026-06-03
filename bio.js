@@ -329,15 +329,16 @@ function buildBody() {
   bodyPlaced = {}; bodySelectedZone = null; totalCount = Object.keys(bodyZones).length;
   var organs = ['Brain','Heart','Stomach','Bladder'];
   var shuffled = organs.slice().sort(()=>Math.random()-0.5);
-  var html = `<div style="display:flex;gap:16px;flex-wrap:wrap">
-    <svg viewBox="0 0 180 320" style="flex:0 0 150px;background:#fafcff;border-radius:24px;padding:10px">`;
+  var html = `<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-start">
+    <svg viewBox="0 0 180 360" style="flex:0 0 160px;height:320px;background:#fafcff;border-radius:24px;padding:10px">`;
   for (var z in bodyZones) {
     var zInfo = bodyZones[z];
-    html += `<ellipse cx="${zInfo.x}" cy="${zInfo.y}" rx="24" ry="20" fill="rgba(44,122,77,0.1)" stroke="#2c7a4d" stroke-width="1.5" id="zone-${z}" onclick="selectZone('${z}')" style="cursor:pointer"/>
-      <text x="${zInfo.x}" y="${zInfo.y+28}" text-anchor="middle" font-size="10" fill="#4a627a">${zInfo.label}</text>
-      <text id="bl-${z}" x="${zInfo.x}" y="${zInfo.y-10}" text-anchor="middle" font-size="16"></text>`;
+    html += `
+      <ellipse cx="${zInfo.x}" cy="${zInfo.y}" rx="36" ry="30" fill="rgba(44,122,77,0.1)" stroke="#2c7a4d" stroke-width="1.5" id="zone-${z}" onclick="selectZone('${z}')" style="cursor:pointer"/>
+      <text x="${zInfo.x}" y="${zInfo.y+44}" text-anchor="middle" font-size="11" fill="#4a627a" style="pointer-events:none">${zInfo.label}</text>
+      <text id="bl-${z}" x="${zInfo.x}" y="${zInfo.y+8}" text-anchor="middle" font-size="22" style="pointer-events:none"></text>`;
   }
-  html += `</svg><div><p id="body-hint"><i class="fas fa-hand-pointer"></i> Tap a zone, then an organ</p><div>`;
+  html += `</svg><div style="flex:1"><p id="body-hint" style="margin-bottom:10px"><i class="fas fa-hand-pointer"></i> Tap a zone, then an organ</p><div>`;
   shuffled.forEach(o => {
     html += `<span class="organ-chip" id="ochip-${o.replace(/\s/g,'-')}" onclick="placeOrgan('${o}')">${o}</span>`;
   });
