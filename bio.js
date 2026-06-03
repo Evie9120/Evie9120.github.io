@@ -318,10 +318,10 @@ function checkEcoBalance() {
 
 // ===== BODY GAME =====
 var bodyZones = {
-  head:   { label:'Head',   emoji:'🧠', correct:'Brain',   x:90, y:30 },
-  chest:  { label:'Chest',  emoji:'❤️', correct:'Heart',   x:90, y:110 },
-  belly:  { label:'Belly',  emoji:'🍽️', correct:'Stomach', x:90, y:180 },
-  pelvis: { label:'Pelvis', emoji:'💧', correct:'Bladder', x:90, y:240 }
+  head:   { label:'Head',   emoji:'🧠', correct:'Brain',   x:90, y:45  },
+  chest:  { label:'Chest',  emoji:'❤️', correct:'Heart',   x:90, y:130 },
+  belly:  { label:'Belly',  emoji:'🍽️', correct:'Stomach', x:90, y:215 },
+  pelvis: { label:'Pelvis', emoji:'💧', correct:'Bladder', x:90, y:295 }
 };
 var bodyPlaced = {}, bodySelectedZone = null;
 
